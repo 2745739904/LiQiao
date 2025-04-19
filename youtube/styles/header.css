@@ -1,0 +1,179 @@
+/*学了flex元素,提供了随页面大小变化而调节div元素等元素的长宽等,可以设置根据列变化还是行变化,还有内部元素在这个容器里面分布情况(start,end,space-between等等),除了分布情况还有对齐情况(align-items)*/
+.header{
+    height: 50px;
+    background-color: white;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: fixed;
+    top:0;
+    left:0;
+    right: 0;
+    border-bottom: #d2d2d2 solid 1px;
+    padding-bottom: 6px;
+    padding-top: 6px;
+    z-index: 100;
+}
+.left-section{
+    width: 150px;
+    display: flex;
+    align-items: center;
+
+}
+.menu-logo{
+    height: 36px;
+    margin-left: 24px;
+    margin-right: 15px;
+}
+.youtube-logo{
+    width: 70px;
+    height: 30px;
+}
+.middle-section{
+    flex:1;
+    margin-left: 70px;
+    margin-right: 35px;
+    max-width: 500px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+/*对于这个searchbar,我发现padding应该比height先设置,虽然结果相同,但是里面有个先后顺序*/
+.search-bar {
+    flex:1;
+    height: 36px;
+    padding-left: 12px;
+    border: solid 1px rgb(220, 220, 220);
+    box-shadow:inset 1px 2px 3px rgba(0,0,0,0.05) ;
+    border-bottom-left-radius: 5px;
+    outline:none;
+    border-top-left-radius: 5px;
+}
+.search-bar::placeholder{
+    font-style: italic;
+    font-size: 16px;
+    outline:none;
+}
+.search-bar:focus {
+    border: 1px solid gray; /* 获得焦点时边框变为灰色 */
+}
+.search-button{
+    height: 40px;
+    width: 69px;
+    border: solid 1px rgb(220, 220, 220);
+    padding-left: -3px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    position: relative;
+    margin-right: 10px;
+}
+.tooltip{
+    position: absolute;
+    background-color: gray;
+    padding: 7px;
+    bottom: -35px;
+    border-radius: 3px;
+    opacity: 0;
+}
+.middle-section .tooltip{
+    position: absolute;
+    background-color: gray;
+    padding: 7px;
+    bottom: -35px;
+    left:-1px;
+    border-radius: 3px;
+    opacity: 0;
+}
+/*hover的对象很重要*/
+.search-button:hover .tooltip{
+    opacity: 1;
+    transition: opacity 0.8s;
+}
+.search-icon{
+    height: 25px;
+    margin-top: 3px;
+}
+.microphone-button {
+    height: 40px;
+    width: 40px;
+    border: solid 1px rgb(220, 220, 220);
+    border-radius: 20px;
+    position: relative;
+}
+.microphone-button:hover .tooltip{
+    opacity: 1;
+    transition: opacity 0.8s;
+}
+.microphone-icon{
+    height: 24px;
+    width: 24px;
+    margin-top: 3px;
+}
+
+.right-section{
+    width: 170px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+.camera-button{
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    border:none;
+    margin-right: 10px;
+
+}
+.camera-icon {
+    border:none;
+    height: 25px;
+
+}
+.alarm-button{
+    height: 40px;
+    border:none;
+    border-radius: 20px;
+    margin-right: 10px;
+    width: 40px;
+}
+.alarm-icon{
+    border:none;
+    height: 27px;
+    border-radius: 50%;
+}
+.alarm-div{
+    position: relative;
+
+}
+.alarm-notifications{
+    position: absolute;
+    top:-5px;
+    right:-3px;
+    font-size:12px;
+    background-color: red;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-radius: 50%;
+    color: white;
+}
+.profile-button{
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    margin-right: 20px;
+    align-items: center;
+    display: flex;
+    margin-right: 10px;
+    justify-content: center;
+}
+.profile-icon{
+    height: 40px;
+    width: auto;
+    border-radius: 20px;
+}

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="">
+<head>
+    <meta charset="UTF-8">
+    <title>youtube.com Clone</title>
+	<link rel="stylesheet" href="styles/video.css">
+	<link rel="stylesheet" href="styles/header.css">
+	<link rel="stylesheet" href="styles/general.css">
+	<link rel="stylesheet" href="styles/sidebar.css">
+</head>
+<body>
+<!--一个网页可以看出许多div元素组成的，这样有利于排版-->
+<!--这里在设置图片长宽,但是设置不当的时候比例会变,可以用object-fet进行选择 -->
+<!--为了让网页阅读器知道网页的结构,可以用header替换div,他们在功能上是完全一样的-->
+<header class="header">
+	<div class="left-section">
+		<img class="menu-logo" src="icon/Menu_icon_2_icon-icons.com_71856.svg" alt="menu">
+		<img class="youtube-logo" src="icon/667451.svg" alt="youtube logo">
+	</div>
+
+	<div class="middle-section">
+		<input class="search-bar" type="text" placeholder="Search">
+			<button class="search-button">
+				<img class="search-icon" src="icon/searchmagnifierinterfacesymbol1_79893.svg" alt="search icon" width="20px" height="40px">
+				<div class="tooltip">search</div>
+
+			</button>
+
+		<button class="microphone-button">
+			<img class="microphone-icon" src="icon/microphone-black-shape_icon-icons.com_73491.svg" alt="microphone" height="40px" width="40px">
+			<div class="tooltip">Voice</div>
+
+		</button>
+	</div>
+
+	<div class="right-section">
+		<button class="camera-button">
+			<img class="camera-icon" src="icon/photo-camera-black-tool_icon-icons.com_72960.svg" alt="camera icon">
+		</button>
+
+		<button class="alarm-button">
+			<div class="alarm-div">
+				<img class="alarm-icon" src="icon/alarm_alert_attention_bell_clock_notification_ring_icon_123203.svg" alt="alarm icon">
+				<div class="alarm-notifications">
+					3
+				</div>
+			</div>
+
+		</button>
+		<button class="profile-button">
+			<img class="profile-icon" src="images/img_2.png" alt="profile image">
+		</button>
+	</div>
+</header>
+
+<div class="sidebar">
+	<div class="sidebar-links">
+		<button class="home-button">
+			<img class="home-icon" src="icon/home.svg" alt="home icon">
+		</button>
+		<div>Home</div>
+	</div>
+
+	<div class="sidebar-links">
+		<button class="explore-button">
+		<img class="explore-icon" src="icon/explore.png" alt="explore icon">
+		</button>
+		<div>explore</div>
+	</div>
+
+	<div class="sidebar-links">
+		<button class="sub-button">
+			<img class="sub-icon" src="icon/sub.png" alt="subscribe icon">
+		</button>
+		<div>subscribe</div>
+	</div>
+
+	<div class="sidebar-links">
+		<button class="originals-button">
+			<img class="originals-icon" src="icon/originals.png" alt="original icon">
+		</button>
+		<div>originals</div>
+	</div>
+
+	<div class="sidebar-links">
+		<button class="music-button">
+			<img class="music-icon" src="icon/music.svg" alt="music icon">
+		</button>
+		<div>YouTube music</div>
+	</div>
+
+	<div class="sidebar-links">
+		<button class="lib-button">
+			<img class="lib-icon" src="icon/lib.png" alt="library icon">
+		</button>
+		<div>library</div>
+	</div>
+</div>
+<main>
+	<div class="video-grid">
+		<div class="video-preview">
+			<div class="thumbnail-row">
+				<img class="thumbnail" src="images/img.png" alt="这是视频a">
+				<div class="video-time">14:01</div>
+			</div>
+			<div>
+				<div class="video-info-grid">
+					<div class="channel-picture">
+						<img class="profile-picture" src="images/img_2.png" alt="channel-picture">
+					</div>
+					<div class="video-info">
+						<p class="video-title">Talking Tech and AI with Google CEO Sunder Pichai!</p>
+						<p class="video-author">
+							Marques Brown lee
+						</p>
+						<p class="video-stats">
+							3.4M views 6 months ago
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="video-preview">
+			<div class="thumbnail-row">
+				<div class="video-time">14:01</div>
+				<img class="thumbnail" src="images/img_1.png" alt="这是视频a">
+			</div>
+			<div>
+				<div class="video-info-grid">
+					<div class="channel-picture">
+						<img class="profile-picture" src="images/img_2.png" alt="channel-picture">
+					</div>
+					<div class="video-info">
+						<p class="video-title">try not to launch challenges</p>
+						<p class="video-author">
+							Markiplier
+						</p>
+						<p class="video-stats">
+							3.4M views 6 months ago
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="video-preview">
+			<div class="thumbnail-row">
+				<div class="video-time">14:01</div>
+				<img class="thumbnail" src="images/img.png" alt="这是视频a">
+			</div>
+			<div>
+				<div class="video-info-grid">
+					<div class="channel-picture">
+						<img class="profile-picture" src="images/img_2.png" alt="channel-picture">
+					</div>
+					<div class="video-info">
+						<p class="video-title">Talking Tech and AI with Google CEO Sundar Pichai!</p>
+						<p class="video-author">
+							Marques Brown lee
+						</p>
+						<p class="video-stats">
+							3.4M views 6 months ago
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="video-preview">
+			<div class="thumbnail-row">
+				<div class="video-time">14:01</div>
+				<img class="thumbnail" src="images/img.png" alt="这是视频a">
+			</div>
+			<div>
+				<div class="video-info-grid">
+					<div class="channel-picture">
+						<img class="profile-picture" src="images/img_2.png" alt="channel-picture">
+					</div>
+					<div class="video-info">
+						<p class="video-title">Talking Tech and AI with Google CEO Sundar Pichai!</p>
+						<p class="video-author">
+							Marques Brown lee
+						</p>
+						<p class="video-stats">
+							3.4M views 6 months ago
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="video-preview">
+			<div class="thumbnail-row">
+				<div class="video-time">14:01</div>
+				<img class="thumbnail" src="images/img.png" alt="这是视频a">
+			</div>
+			<div>
+				<div class="video-info-grid">
+					<div class="channel-picture">
+						<img class="profile-picture" src="images/img_2.png" alt="channel-picture">
+					</div>
+					<div class="video-info">
+						<p class="video-title">Talking Tech and AI with Google CEO Sundar Pichai!</p>
+						<p class="video-author">
+							Marques Brown lee
+						</p>
+						<p class="video-stats">
+							3.4M views 6 months ago
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="video-preview">
+			<div class="thumbnail-row">
+				<div class="video-time">14:01</div>
+				<img class="thumbnail" src="images/img.png" alt="这是视频a">
+			</div>
+			<div>
+				<div class="video-info-grid">
+					<div class="channel-picture">
+						<img class="profile-picture" src="images/img_2.png" alt="channel-picture">
+					</div>
+					<div class="video-info">
+						<p class="video-title">Talking Tech and AI with Google CEO Sundar Pichai!</p>
+						<p class="video-author">
+							Marques Brown lee
+						</p>
+						<p class="video-stats">
+							3.4M views 6 months ago
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+
+
+
+</body>
+</html>
+

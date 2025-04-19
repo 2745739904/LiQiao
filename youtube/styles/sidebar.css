@@ -1,0 +1,76 @@
+.sidebar{
+    height: 80%;
+    width: 70px;
+    position: fixed;
+    top: 61px;
+    left: 0;
+    bottom: 0;
+    background: white;
+}
+.sidebar-links{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /*position: relative;*/
+}
+
+.sidebar-links img{
+    height: 30px;
+}
+
+/*用flex的时候要注意,换行尽量用flex的子元素,其他的元素的换行应该也是尽量用子元素*/
+/*.sidebar-links div{*/
+/*    padding-left: 7px;*/
+/*    padding-right: 7px;*/
+/*    font-size: 12px;*/
+/*    position: absolute;*/
+/*    bottom: 9px;*/
+/*}*/
+.sidebar-links div{
+    font-size: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+.home-button {
+    background-color: white;
+    border: none;
+}
+.home-icon {
+}
+.explore-button {
+    background-color: white;
+    border: none;
+}
+.explore-icon {
+}
+.sub-button {
+    background-color: white;
+    border: none;
+}
+.sub-icon {
+}
+.originals-button {
+    background-color: white;
+    border: none;
+}
+.originals-icon {
+}
+.music-button {
+    background-color: white;
+    border: none;
+}
+.music-icon{
+}
+.lib-button {
+    background-color: white;
+    border: none;
+}
+.lib-icon {
+
+}
+/*可以用z-index设置优先显示*/

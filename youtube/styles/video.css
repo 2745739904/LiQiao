@@ -1,0 +1,110 @@
+/*学习了grid元素,像表格一样,可以把div元素整合到一起,在grid里面,可以设置有列的数量和属性(fr?),还有列,行之间的间距关系*/
+.video-grid {
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 40px;
+    /*在设置固定页眉,需要把body往下挪的时候,用padding-top而不是margin-top*/
+    margin-left: 35px;
+    margin-right: 35px;
+}
+/*继承只适用于文字元素，而不继承前天元素的子元素*/
+/* 屏幕宽度小于等于 520px 时，视频网格为一列 */
+@media (max-width: 520px) {
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 屏幕宽度在 521px 到 749px 之间时，视频网格为两列 */
+@media (min-width: 521px) and (max-width: 749px) {
+    .video-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* 屏幕宽度在 750px 到 999px 之间时，视频网格为三列 */
+@media (min-width: 750px) and (max-width: 999px) {
+    .video-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+/* 屏幕宽度大于等于 1000px 时，视频网格为四列 */
+@media (min-width: 1000px) {
+    .video-grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+.video-preview {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff; /* 背景颜色 */
+    border-radius: 8px; /* 圆角 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+    overflow: hidden; /* 防止内容溢出 */
+    transition: transform 0.2s ease-in-out; /* 添加悬停动画 */
+}
+.thumbnail-row{
+    position: relative;
+}
+.thumbnail{
+    /*有right,left,contain等等*/
+    width: 100%; /* 图片宽度占满容器 */
+    height: auto; /* 保持比例 */
+    object-fit: cover; /* 确保图片不会变形 */
+    cursor: pointer;
+}
+/*添加视频的时长标签,必须是两个div元素,父div元素的position应该是relative,子div元素的position是absolute(是相对于父div元素的绝对位置)那么,为什么子div要设置相对于父div元素需要父div元素有一个relative呢*/
+.video-time{
+    background-color: black;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 2px 4px;
+    border-radius: 3px;
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+}
+.video-info-grid {
+    display: flex;
+    padding: 12px; /* 内边距 */
+}
+
+.profile-picture{
+    width: 40px; /* 通道头像的宽度 */
+    height: 40px; /* 通道头像的高度 */
+    border-radius: 50%; /* 圆形头像 */
+    margin-right: 12px; /* 与文字之间的间距 */
+}
+
+.video-title{
+    width: 100%;
+    margin-top: 0;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 12px;
+}
+/*每段p都是一个block元素，通过display属性可以设置为内联元素*/
+
+.video-author {
+    font-size: 0.9rem; /* 作者名字字体大小 */
+    color: #666; /* 字体颜色 */
+    margin: 0 0 4px 0;
+}
+
+.video-stats {
+    font-size: 0.8rem; /* 统计信息字体大小 */
+    color: #999; /* 字体颜色 */
+    margin: 0;
+}
+
+/*    同时也可以把内联元素设置为块元素,这样在某些场景就可以不用br元素了*/
+/*    块元素之间的对齐需要用vertical-align*/
+
+/* Hover effect */
+.video-preview:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* 更深的阴影 */
+}
