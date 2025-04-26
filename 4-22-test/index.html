@@ -1,36 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>抽奖</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>姿势抽奖</title>
     <style>
         body {
             background-color: #1a202c;
             color: #e2e8f0;
             font-family: 'Inter', sans-serif;
-            padding: 1rem;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #81e6d9;
+            font-size: 2.5rem;
         }
         button {
             background-color: #4a5568;
             color: #e2e8f0;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.25rem;
-            transition: background-color 0.3s ease;
-            font-size: 1rem;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 0 auto 2rem;
         }
         button:hover {
             background-color: #718096;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-       .show-selection div {
+        #show-selection {
             background-color: #2d3748;
-            padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 0.25rem;
+            border-radius: 8px;
+            padding: 20px;
         }
-       .show-selection div.new-item {
+        .selection-item {
+            padding: 1.5rem;
+            margin: 1rem 0;
+            background-color: #4a5568;
+            border-radius: 8px;
             animation: fadeIn 0.5s ease;
+            position: relative;
+        }
+        .selection-item button {
+            margin: 10px 0 0 0;
+            padding: 0.5rem 1rem;
+            background-color: #e53e3e;
+            font-size: 0.9rem;
+        }
+        .selection-item button:hover {
+            background-color: #c53030;
         }
         @keyframes fadeIn {
             from {
@@ -42,71 +68,50 @@
                 transform: translateY(0);
             }
         }
-        @media (max-width: 640px) {
-            body {
-                padding: 0.5rem;
-            }
-            button {
-                padding: 0.6rem 1.2rem;
-                font-size: 0.9rem;
-            }
-           .show-selection div {
-                padding: 0.8rem;
-                font-size: 0.9rem;
-            }
-        }
     </style>
 </head>
 <body>
+    <h1>姿势抽奖系统</h1>
+    <button onclick="select()">点击抽取姿势</button>
+    <div id="show-selection"></div>
+
     <script>
         const lovePosture = ['后入(跪)','扬旗','女上位','侧入式','撞钟','摇船','犬交','花攀枝','叠瓦'];
         const duringTime = ['5','10','15'];
-
         const selected = [];
 
-        function selectionTest() {
-            const postureRandom = Math.floor(Math.random() * lovePosture.length);
-            const timeRandom = Math.floor(Math.random() * duringTime.length);
-
-            const selectedPosture = lovePosture[postureRandom];
-            const selectedTime = duringTime[timeRandom];
-
+        function select() {
+            const randomPosture = lovePosture[Math.floor(Math.random() * lovePosture.length)];
+            const randomTime = duringTime[Math.floor(Math.random() * duringTime.length)];
+            
             selected.push({
-                selectedPosture,
-                selectedTime,
+                posture: randomPosture,
+                time: randomTime
             });
 
             showSelection();
         }
 
         function showSelection() {
-            let loveHtml = "";
-            for (let i = 0; i < selected.length; i++) {
-                const item = selected[i];
-                const html = `
-                    <div class="${i === selected.length - 1? 'new-item' : ''}">
-                        恭喜🎉你抽中了 ${item.selectedPosture} 
-                        时间是${item.selectedTime}分钟哦~~加油喵喵喵
-                        <button onclick="deleteSelection(${i})">删除</button>
+            const container = document.getElementById('show-selection');
+            let html = '';
+            
+            selected.forEach((item, index) => {
+                html += `
+                    <div class="selection-item">
+                        <p>恭喜煊煊，你选中了 ${item.posture}，持续 ${item.time} 分钟</p>
+                        <button onclick="deleteItem(${index})">删除记录</button>
                     </div>
                 `;
-                loveHtml += html;
-            }
-            document.querySelector('.show-selection').innerHTML = loveHtml;
+            });
+
+            container.innerHTML = html || '<p class="text-gray-400">暂无抽奖记录</p>';
         }
 
-        function deleteSelection(index) {
+        function deleteItem(index) {
             selected.splice(index, 1);
             showSelection();
         }
-
     </script>
-    <!--程序目的:制作一个在固定数组里面抽奖的一个程序,并且配备删除功能-->
-    <h1 class="text-2xl font-bold text-center my-4">超级大抽奖</h1>
-    <div class="flex justify-center">
-        <button onclick="selectionTest()" class="focus:outline-none">按下这个按钮试试呢</button>
-    </div>
-    <div class="show-selection mx-4"></div>
 </body>
 </html>
-    
