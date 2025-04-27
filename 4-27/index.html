@@ -1,175 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>抽奖</title>
-	<style>
-		/* 全局样式 */
-		* {
-			margin: 0;
-			padding: 0;
-			box-sizing: border-box;
-		}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>超级大抽奖</title>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-		body {
-			background-color: #121212; /* 深黑色背景 */
-			color: #ffffff; /* 白色文字 */
-			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-			line-height: 1.5;
-			min-height: 100vh;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			text-align: center;
-			padding: 20px; /* 添加内边距，防止内容贴边 */
-		}
+        body {
+            background-color: #121212; /* 深黑色背景 */
+            color: #ffffff; /* 白色文字 */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px; /* 防止内容贴边 */
+        }
 
-		h1 {
-			font-size: clamp(1.5rem, 4vw, 2rem); /* 根据屏幕宽度动态调整字体大小 */
-			font-weight: bold;
-			margin-bottom: 20px;
-			letter-spacing: 0.5px;
-			color: #e0e0e0; /* 浅灰色标题 */
-		}
+        h1 {
+            font-size: clamp(1.5rem, 4vw, 2rem); /* 根据屏幕宽度动态调整字体大小 */
+            font-weight: bold;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+            color: #e0e0e0; /* 浅灰色标题 */
+        }
 
-		button {
-			background-color: #007aff; /* 苹果蓝色按钮 */
-			color: white;
-			border: none;
-			padding: 12px 24px;
-			font-size: clamp(0.9rem, 3vw, 1rem); /* 根据屏幕宽度动态调整字体大小 */
-			font-weight: bold;
-			border-radius: 10px;
-			cursor: pointer;
-			transition: background-color 0.3s ease, transform 0.3s ease;
-			width: 100%; /* 在小屏幕上占据全宽 */
-			max-width: 300px; /* 限制最大宽度 */
-		}
+        button {
+            background-color: #007aff; /* 苹果蓝色按钮 */
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: clamp(0.9rem, 3vw, 1rem); /* 根据屏幕宽度动态调整字体大小 */
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            width: 100%; /* 在小屏幕上占据全宽 */
+            max-width: 300px; /* 限制最大宽度 */
+        }
 
-		button:hover {
-			background-color: #005bb5; /* 深蓝色悬停效果 */
-			transform: scale(1.05); /* 按钮轻微放大 */
-		}
+        button:hover {
+            background-color: #005bb5; /* 深蓝色悬停效果 */
+            transform: scale(1.05); /* 按钮轻微放大 */
+        }
 
-		button:active {
-			transform: scale(0.95); /* 按下时缩小 */
-		}
+        button:active {
+            transform: scale(0.95); /* 按下时缩小 */
+        }
 
-		.show-selection {
-			margin-top: 20px;
-			width: 100%;
-			max-width: 400px; /* 限制最大宽度 */
-		}
+        .show-selection {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 400px; /* 限制最大宽度 */
+        }
 
-		.show-selection p {
-			font-size: clamp(0.8rem, 3vw, 1rem); /* 根据屏幕宽度动态调整字体大小 */
-			color: #d4d4d4; /* 浅灰色文字 */
-			margin: 10px 0;
-			padding: 10px;
-			background-color: #1e1e1e; /* 稍微浅一点的背景 */
-			border-radius: 8px;
-			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
-		}
+        .show-selection p {
+            font-size: clamp(0.8rem, 3vw, 1rem); /* 根据屏幕宽度动态调整字体大小 */
+            color: #d4d4d4; /* 浅灰色文字 */
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #1e1e1e; /* 稍微浅一点的背景 */
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
+        }
 
-		/* 动画效果 */
-		@keyframes fadeIn {
-			from {
-				opacity: 0;
-				transform: translateY(-10px);
-			}
-			to {
-				opacity: 1;
-				transform: translateY(0);
-			}
-		}
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-		.show-selection p {
-			animation: fadeIn 0.5s ease-in-out;
-		}
+        .show-selection p {
+            animation: fadeIn 0.5s ease-in-out;
+        }
 
-		/* 响应式设计 */
-		@media (max-width: 600px) {
-			h1 {
-				font-size: 1.5rem;
-			}
+        /* 响应式设计 */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+            }
 
-			button {
-				font-size: 0.9rem;
-				padding: 10px 20px;
-			}
+            button {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
 
-			.show-selection p {
-				font-size: 0.8rem;
-				padding: 8px;
-			}
-		}
-	</style>
+            .show-selection p {
+                font-size: 0.8rem;
+                padding: 8px;
+            }
+        }
+    </style>
 </head>
 <body>
-<!--程序目的:制作一个在固定数组里面抽奖的一个程序,并且配备删除功能-->
-<h1 class="text-2xl font-bold text-center my-4">超级大抽奖</h1>
-<div class="flex justify-center">
-	<button onclick="select()">按下这个按钮试试呢</button>
-</div>
-<div class="show-selection"></div>
+    <!-- 页面内容 -->
+    <h1 class="text-2xl font-bold text-center my-4">超级大抽奖</h1>
+    <div class="flex justify-center">
+        <button onclick="select()">按下这个按钮试试呢</button>
+    </div>
+    <div class="show-selection"></div>
 
-<script>
-	const lovePosture = ['后入(跪)','扬旗','女上位','侧入式','撞钟','摇船','犬交','花攀枝','叠瓦'];
-	const duringTime = ['5','10','15'];
+    <script>
+        const lovePosture = ['后入(跪)', '扬旗', '女上位', '侧入式', '撞钟', '摇船', '犬交', '花攀枝', '叠瓦'];
+        const duringTime = ['5', '10', '15'];
 
-	//1.创建一个数组 2.随机选择一个posture和time 3.输出数组到show-selection
+        const selected = [];
 
-	//2.生成一个随机数,然后存储到一个键值对数组
-	let selectedPosture='';
-	let selectedTime='';
-	/*再开始声明键值对数组的时候,可以不用具体声明
-	首次运行会出现一个空的选择,是因为我在初始化时已经包含了一个空对象
-	const selected=[{
-		selectedPosture,
-		selectedTime,
-	}]*/
-	const selected=[];
+        function select() {
+            // 随机选择姿势和时间
+            const randomPosture = lovePosture[Math.floor(Math.random() * lovePosture.length)];
+            const randomTime = duringTime[Math.floor(Math.random() * duringTime.length)];
 
-	function select(){
-		//生成随机Index
-		const randomPosture = lovePosture[Math.floor(Math.random() * lovePosture.length)];
-		const randomTime = duringTime[Math.floor(Math.random() * duringTime.length)];
+            // 存入到数组
+            selected.push({
+                posture: randomPosture,
+                time: randomTime
+            });
 
-		//存入到选择过的数组,这里有问题
-		/*let selectPosture = lovePosture[randomPostureIndex];
-		let selectTime=[randomTimeIndex];
-		console.log(selected);*/
+            // 显示结果
+            showSelection();
+        }
 
-		//创建变量of随机选择的posture和time
-
-		/*这里有问题,我重新声明了一个块级的重名变量,此时外部的变量就没有被选择,再下一步push到这两个变量的时候,就push到这个块级变量了,外部的数组没有受影响*/
-		/*const selectedPosture = lovePosture[randomPostureIndex];
-		const selectedTime = duringTime[randomTimeIndex];*/
-
-		//存入到数组
-		selected.push({
-			posture: randomPosture,
-			time: randomTime
-		});
-		showSelection();
-	}
-
-
-	//3.输出数组到show-selection
-	//可以不用for循环输出
-	function showSelection() {
-		let showHtml='';
-		for ( let i = 0; i < selected.length; i++ ) {
-			const { posture, time } = selected[i];
-			const html=`
-        <p>恭喜你~ 你抽中了 ${posture}, 时间是${time}分钟哦~</p>
-
-        `;
-			showHtml += html;
-		}
-		document.querySelector('.show-selection').innerHTML = showHtml;
-	}
-</script>
+        function showSelection() {
+            let showHtml = '';
+            for (let i = 0; i < selected.length; i++) {
+                const { posture, time } = selected[i];
+                const html = `
+                    <p>恭喜你~ 你抽中了 ${posture}, 时间是${time}分钟哦~</p>
+                `;
+                showHtml += html;
+            }
+            document.querySelector('.show-selection').innerHTML = showHtml;
+        }
+    </script>
 </body>
 </html>
