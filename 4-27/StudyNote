@@ -1,0 +1,92 @@
+  这段代码耗时3天,共计4小时,css代码由通义ai生成.在写脚本时遇到了许多问题:未理解变量作用域,存入到数组的手段,没正确理解两个函数执行时,数组变化的关系.没正确解构数组.拼写错误
+    主要学习了DOM操作元素
+    变量作用域问题:没意识到const是块级作用域的声明关键词
+    没使用.push来存入数组
+    for循环的停止条件错误
+    解构数组错误:const {selectedPosture,selectedTime}=selected;而应该是select[i].selectedPosture
+
+
+
+
+
+
+这是第一版代码
+代码错在哪
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>抽奖</title>
+	<link rel="stylesheet" href="4-24.css">
+</head>
+<body>
+
+<!--程序目的:制作一个在固定数组里面抽奖的一个程序,并且配备删除功能-->
+<p>超级大抽奖</p>
+<button onclick="selectionTest()">按下这个按钮试试呢</button>
+<div class="show-selection"></div>
+
+
+<script src="4-24.js"></script>
+</body>
+</html>
+const lovePosture=['后入(跪)','扬旗','女上位','侧入式','撞钟','摇船','犬交','花攀枝','叠瓦']
+const duringTime=['5','10','15'];
+
+const selected=[{
+    selectedPosture:'后入',
+    selectedTime:'15'
+}];
+
+
+
+
+//功能增加:保留上一次的结果,增加删除功能,那么就需要把展示和抽取分开,避免一次抽出多个,并在展示功能添加for循环.
+
+function selectionTest(){
+
+    //生成随机数
+    const postureRandom=Math.floor(Math.random() * lovePosture.length);
+    const timeRandom=Math.floor(Math.random() * duringTime.length);
+
+    //选中的项目和时间
+    const selectedPosture=lovePosture[postureRandom];//选中的
+    const selectedTime=duringTime[timeRandom];
+
+    //选中之后把这些存入数组
+    selected.push({
+        selectedPosture,
+        selectedTime,
+    })
+
+
+    //输出
+    showSelection();
+}
+
+
+
+//进行输出,用for循环进行输出,
+function showSelection(){
+    const {selectedPosture,selectedTime}=selected;
+
+
+    //循环的目的是重置上一次的结果,并且输出保存结果数组
+
+    let loveHtml;
+    for ( let i = 0; i < lovePosture.length; i++ ) {
+        loveHtml = "";
+
+        //解构对象
+        const {selectedPosture, selectedTime} = selected;
+
+
+        const html = `
+            <div>恭喜🎉你抽中了 ${selectedPosture} 时间是${selectedTime}分钟哦~~加油喵喵喵</div>
+        `;
+        loveHtml += html;
+    }
+    console.log(loveHtml);
+
+    document.querySelector('.show-selection').innerHTML=loveHtml;
+}
