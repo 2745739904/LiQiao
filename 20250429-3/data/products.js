@@ -11,7 +11,7 @@ products.push(
         productName: "搞完,李巧双拼",
         productDescription: "似乎是两种风格",
         price: 29.9,
-        image: "images/product-2.JPG",
+        image: "images/product-2.jpg",
     },
     {
         productName: "高三版男同",
