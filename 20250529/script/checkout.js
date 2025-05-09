@@ -136,4 +136,5 @@ function updatePaymentCount() {
 
     document.querySelector('.payment-summary-row').innerHTML = tempHtml;
 }
+updatePaymentCount();
 
