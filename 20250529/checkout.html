@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>结账页面</title>
+
+	<link rel="stylesheet" href="css/general.css">
+	<link rel="stylesheet" href="css/checkout-header.css">
+	<link rel="stylesheet" href="css/checkout.css">
+</head>
+<body>
+<div class="checkout-header">
+	<div class="header-content">
+		<div class="checkout-header-left-section">
+			<a href="index.html">
+				巧哥商城
+			</a>
+		</div>
+
+		<div class="checkout-header-middle-section">
+			结账（<a class="return-to-home-link"
+			        href="index.html">件商品</a>）
+		</div>
+
+	</div>
+</div>
+<div class="main">
+	<div class="page-title">再看哈你的购物车</div>
+
+	<div class="checkout-grid">
+		<div class="cart-item-container">
+
+		</div>
+
+		<div class="payment-summary">
+			<div class="payment-summary-title">
+				订单汇总
+			</div>
+
+			<div class="payment-summary-row">
+				<div>商品（3件）：</div>
+				<div class="payment-summary-money">￥218.90</div>
+			</div>
+
+			<div class="payment-summary-row">
+				<div>运费及处理费：</div>
+				<div class="payment-summary-money">￥4.99</div>
+			</div>
+
+			<div class="payment-summary-row subtotal-row">
+				<div>税前总额：</div>
+				<div class="payment-summary-money">￥223.89</div>
+			</div>
+
+			<div class="payment-summary-row">
+				<div>预估税费（10%）：</div>
+				<div class="payment-summary-money">￥22.39</div>
+			</div>
+
+			<div class="payment-summary-row total-row">
+				<div>订单总额：</div>
+				<div class="payment-summary-money">￥246.28</div>
+			</div>
+
+			<button class="place-order-button button-primary">
+				提交订单
+			</button>
+		</div>
+
+	</div>
+</div>
+<script type="module" src="script/checkout.js"></script>
+<script type="module" src="data/cart.js"></script>
+<script type="module" src="data/products.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/dayjs/1.4.1/dayjs.min.js"></script>
+</body>
+</html>
