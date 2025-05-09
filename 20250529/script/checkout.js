@@ -123,4 +123,17 @@ function removeFromCart(productId) {
     cartItems.push(...newCart); // 将新数组元素添加到原数组
     cartToLocalStorage();//更新购物车
     updateCartCount();
+    updatePaymentCount();
 }
+
+
+//临时
+function updatePaymentCount() {
+    let tempHtml = `
+    <div>商品${updateCartCount()}件）：</div>
+    <div class="payment-summary-money">￥218.90</div>
+    `;
+
+    document.querySelector('.payment-summary-row').innerHTML = tempHtml;
+}
+
