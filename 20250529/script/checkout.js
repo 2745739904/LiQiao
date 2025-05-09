@@ -130,7 +130,7 @@ function removeFromCart(productId) {
 //临时
 function updatePaymentCount() {
     let tempHtml = `
-    <div>商品${updateCartCount()}件）：</div>
+    <div>商品(${updateCartCount()}件）：</div>
     <div class="payment-summary-money">￥218.90</div>
     `;
 
