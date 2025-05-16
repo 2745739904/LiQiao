@@ -94,8 +94,20 @@ export function renderOrderSummary() {
     }
 
     function bindDeliveryOptions() {
+        document.querySelectorAll('.js-delivery-option').forEach(option => {
+            // 给整个 .js-delivery-option 添加点击事件
+            option.addEventListener('click', function () {
+                const radio = this.querySelector('.delivery-option-input');
+                if (radio && !radio.checked) {
+                    radio.checked = true;
+                    radio.dispatchEvent(new Event('change')); // 触发 change 事件
+                }
+            });
+        });
+
+        // 现有 change 事件监听器不变
         document.querySelectorAll('.delivery-option-input').forEach(input => {
-            input.addEventListener('change', function() {
+            input.addEventListener('change', function () {
                 if (this.checked) {
                     const productId = this.dataset.productId;
                     const deliveryId = this.dataset.deliveryId;
