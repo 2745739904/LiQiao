@@ -1,0 +1,235 @@
+.main {
+  max-width: 1100px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin: 140px auto 100px;
+}
+
+.page-title {
+  font-weight: 700;
+  font-size: 22px;
+  margin-bottom: 18px;
+}
+
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  column-gap: 12px;
+  align-items: start;
+}
+
+@media (max-width: 1000px) {
+  .main {
+    max-width: 500px;
+  }
+
+  .checkout-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cart-item-container,
+.payment-summary {
+  border: 1px solid #484848;
+  border-radius: 10px;
+  padding: 18px;
+  background-color: #1E1F22;
+}
+
+.cart-item-container {
+  margin-bottom: 12px;
+}
+
+.payment-summary {
+  padding-bottom: 5px;
+  background-color: #1E1F22
+}
+
+@media (max-width: 1000px) {
+  .payment-summary {
+    grid-row: 1;
+    margin-bottom: 12px;
+  }
+}
+
+.
+
+.delivery-date {
+  color: rgb(0, 118, 0);
+  font-weight: 700;
+  font-size: 19px;
+  margin-top: 5px;
+  margin-bottom: 22px;
+}
+
+.cart-item-details-grid {
+  display: grid;
+  grid-template-columns: 100px 1fr 1fr;
+  column-gap: 25px;
+  margin-bottom: 40px;
+  border-bottom: solid 1px #484848;
+}
+
+.cart-item-details{
+  margin-top: 30px;
+}
+
+@media (max-width: 1000px) {
+  .cart-item-details-grid {
+    grid-template-columns: 100px 1fr;
+    row-gap: 30px;
+  }
+}
+
+.product-image {
+  max-width: 100%;
+  max-height: 120px;
+  place-self: center;
+  justify-self: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.product-name {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.product-price {
+  color: rgb(177, 39, 4);
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.product-quantity .link-primary {
+  margin-left: 3px;
+}
+
+@media (max-width: 1000px) {
+  .delivery-options {
+    grid-column: 1 / span 2;
+  }
+}
+
+.delivery-options-title {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.delivery-option {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.delivery-option-input {
+  margin-left: 0px;
+  cursor: pointer;
+}
+
+.delivery-option-input:focus {
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+
+.delivery-option-date {
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+.delivery-option-price {
+  color: rgb(120, 120, 120);
+  font-size: 15px;
+}
+
+.payment-summary-title {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.payment-summary-row {
+  display: grid;
+  /* 1fr auto; means the width of the 2nd column will be
+     determined by the elements inside the column (auto).
+     The 1st column will take up the remaining space. */
+  grid-template-columns: 1fr auto;
+
+  font-size: 15px;
+  margin-bottom: 9px;
+}
+
+.payment-summary-money {
+  text-align: right;
+}
+
+.subtotal-row .payment-summary-money {
+  border-top: 1px solid rgb(222, 222, 222);
+}
+
+.subtotal-row div {
+  padding-top: 9px;
+}
+
+.total-row {
+  color: rgb(177, 39, 4);
+  font-weight: 700;
+  font-size: 18px;
+
+  border-top: 1px solid rgb(222, 222, 222);
+  padding-top: 18px;
+}
+
+.place-order-button {
+  width: 100%;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-radius: 8px;
+
+  margin-top: 11px;
+  margin-bottom: 15px;
+}
+
+
+/**/
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  max-width: 90%; /* 控制最大宽度 */
+  width: auto; /* 自动调整宽度 */
+  opacity: 0; /* 初始透明度为0 */
+  transition: opacity 0.3s ease-in-out; /* 添加淡入动画 */
+}
+
+/* 显示模态框时的样式 */
+.modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 图片样式 */
+.modal img {
+  max-width: 250px; /* 保证图片不会超出模态框 */
+  height: auto;
+}
+
+/* 关闭按钮样式 */
+.modal button {
+  position: absolute; /* 绝对定位 */
+  top: 10px; /* 距离顶部的距离 */
+  left: 10px; /* 距离左侧的距离 */
+  background-color: #ff4d4d; /* 可选：改变背景颜色 */
+  color: white; /* 可选：改变文字颜色 */
+  border: none; /* 移除默认边框 */
+  border-radius: 3px; /* 可选：圆角效果 */
+  cursor: pointer;
+  padding: 5px 10px;
+}

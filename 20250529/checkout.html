@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>结账页面</title>
+
+	<script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.13/dayjs.min.js"></script>
+	<link rel="stylesheet" href="css/general.css">
+	<link rel="stylesheet" href="css/checkout-header.css">
+	<link rel="stylesheet" href="css/checkout.css">
+</head>
+<body>
+<div class="checkout-header">
+	<div class="header-content">
+		<div class="checkout-header-left-section">
+			<a href="index.html">
+				巧哥商城
+			</a>
+		</div>
+
+		<div class="checkout-header-middle-section">
+			结账（<a class="return-to-home-link"
+			        href="index.html">件商品</a>）
+		</div>
+
+	</div>
+</div>
+<div class="main">
+	<div class="page-title">再看哈你的购物车</div>
+
+	<div class="checkout-grid">
+		<div class="cart-item-container">
+
+		</div>
+
+		<div class="payment-summary">
+
+		</div>
+
+	</div>
+</div>
+<script src="script/checkout/orderSummary.js" type="module"></script>
+<script src="script/checkout/paymentSummary.js" type="module"></script>
+<script type="module" src="data/delivery.js"></script>
+<script type="module" src="script/checkout.js"></script>
+<script type="module" src="data/cart.js"></script>
+<script type="module" src="data/products.js"></script>
+</body>
+</html>
